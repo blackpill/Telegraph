@@ -22,7 +22,7 @@ public protocol HTTPConnectionDelegate: AnyObject {
 public class HTTPConnection: TCPConnection {
   public weak var delegate: HTTPConnectionDelegate?
 
-  private let socket: TCPSocket
+  public let socket: TCPSocket
   private let config: HTTPConfig
   private var parser: HTTPParser
   private var upgrading = false

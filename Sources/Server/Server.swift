@@ -22,7 +22,7 @@ open class Server {
   private var webSocketConnectionSet = SynchronizedSet<WebSocketConnection>()
 
   private let listenerQueue = DispatchQueue(label: "Telegraph.Server.listener")
-  private let connectionsQueue = DispatchQueue(label: "Telegraph.Server.connections")
+  public let connectionsQueue = DispatchQueue(label: "Telegraph.Server.connections")
   private let workerQueue = OperationQueue()
 
   /// Initializes a unsecure Server instance.

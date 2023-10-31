@@ -10,7 +10,7 @@ import Foundation
 
 public struct HTTPConfig {
   /// The maximum time the connection will wait for incoming data.
-  public var readTimeout: TimeInterval = 60
+  public var readTimeout: TimeInterval = -1
 
   /// The maximum time the connection will wait for writing header data.
   public var writeHeaderTimeout: TimeInterval = 30

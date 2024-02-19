@@ -27,6 +27,8 @@ public class HTTPConnection: TCPConnection {
   private var parser: HTTPParser
   private var upgrading = false
   private var upgradeData: Data?
+  private var sendingPacketCount = 0
+  private let MAX_SENDING_PACKET_COUNT = 60
 
   /// Initializes the HTTP connection.
   public required init(socket: TCPSocket, config: HTTPConfig) {
@@ -54,7 +56,15 @@ public class HTTPConnection: TCPConnection {
 
   /// Sends raw data by writing it to the stream. This can be useful for writing body data over time to a keep-alive connection.
   public func send(data: Data, timeout: TimeInterval) {
-    socket.write(data: data, timeout: timeout)
+    if self.sendingPacketCount < self.MAX_SENDING_PACKET_COUNT {
+      socket.write(data: data, timeout: timeout)
+      self.sendingPacketCount += 1
+    }else{
+      socket.write(data: Data(capacity: 0), timeout: timeout)
+
+//      print("close()")
+//      self.close(immediately: true)
+    }
   }
 
   /// Sends the request by writing it to the stream.
@@ -168,5 +178,9 @@ extension HTTPConnection: TCPSocketDelegate {
   }
 
   /// Raised when the socket sent data (ignore).
-  public func socketDidWrite(_ socket: TCPSocket, tag: Int) {}
+  public func socketDidWrite(_ socket: TCPSocket, tag: Int) {
+    if self.sendingPacketCount > 0 {
+      self.sendingPacketCount -= 1
+    }
+  }
 }

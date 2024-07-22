@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -153,8 +153,9 @@
 		82EF33E81ECD330C002DC910 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = Building42;
 				TargetAttributes = {
 					82EF33EF1ECD330C002DC910 = {
@@ -174,8 +175,6 @@
 			);
 			mainGroup = 82EF33E71ECD330C002DC910;
 			packageReferences = (
-				8206411F240C4737003403F3 /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */,
-				82064122240C4743003403F3 /* XCRemoteSwiftPackageReference "HTTPParserC" */,
 			);
 			productRefGroup = 82EF33F11ECD330C002DC910 /* Products */;
 			projectDirPath = "";
@@ -240,6 +239,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -301,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -414,25 +415,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8206411F240C4737003403F3 /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/robbiehanson/CocoaAsyncSocket";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.6.4;
-			};
-		};
-		82064122240C4743003403F3 /* XCRemoteSwiftPackageReference "HTTPParserC" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Building42/HTTPParserC";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 82EF33E81ECD330C002DC910 /* Project object */;
 }
